@@ -4,52 +4,43 @@ import java.util.ArrayList;
 
 public class Book {
     private String bookName;
-    private List<Paragraph> para = new ArrayList<Paragraph>();
-    private List<Table> tabel = new ArrayList<Table>();
-    private List<Image> img = new ArrayList<Image>();
+    private List<Author> AuthorList = new ArrayList<>();
+    private List<Chapter> ChapterList = new ArrayList<>();
 
-
-    public Book(String numeCarte)
+    public Book(String bookName)
     {
-        this.bookName = numeCarte;
+        this.bookName = bookName;
 
     }
 
-    public Book()
+    public void addAuthor(Author author)
     {
-
+        this.AuthorList.add(author);
     }
 
-    public void createNewParagraph(String newParagraph)
+    public int createChapter(String chapterName)
     {
-        para.add(new Paragraph(newParagraph));
+        Chapter chapter = new Chapter(chapterName);
+        this.ChapterList.add(chapter);
+        return this.ChapterList.indexOf(chapter);
     }
-    public void createNewImage(String newImage)
+    public Chapter getChapter(int index)
     {
-        img.add(new Image(newImage));
-    }
-    public void createNewTable(String newTable)
-    {
-        tabel.add(new Table(newTable));
-    }
-
-    @Override
-    public String toString()
-    {
-        return "Book{" + "nume='" + bookName + '\'' + '}';
+        return this.ChapterList.get(index);
     }
 
     public void print()
     {
-        System.out.println("Nume carte: " + this.bookName);
-        for(Paragraph p : this.para) {
-            System.out.println(p);
+        System.out.println("Title: " + this.bookName);
+        System.out.println("Author/Authors: ");
+        for(Author a : AuthorList)
+        {
+            a.print();
         }
-        for(Image i : this.img) {
-            System.out.println(i);
-        }
-        for(Table t : this.tabel) {
-            System.out.println(t);
+        System.out.println("Chapters: ");
+        for (Chapter c : ChapterList)
+        {
+            c.print();
         }
     }
 

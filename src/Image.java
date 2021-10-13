@@ -6,9 +6,8 @@ public class Image {
         this.image = image;
     }
 
-    @Override
-    public String toString()
+    public void print()
     {
-        return "Imagine : "  + image ;
+        System.out.println(this.image);
     }
 }

@@ -6,9 +6,8 @@ public class Paragraph {
         this.para = text;
     }
 
-    @Override
-    public String toString()
+    public void print()
     {
-        return "Paragraf : "  + para ;
+        System.out.println(this.para);
     }
 }

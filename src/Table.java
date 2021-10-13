@@ -6,9 +6,8 @@ public class Table {
         this.table = table;
     }
 
-    @Override
-    public String toString()
+    public void print()
     {
-        return "Tabel : "  + table ;
+        System.out.println(this.table);
     }
 }
