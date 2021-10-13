@@ -14,7 +14,20 @@ public class SubChapter {
     {
       elements.add(e);
     }
+    public void createNewParagraph(String newParagraph)
+    {
+        elements.add(new Paragraph(newParagraph));
+    }
 
+    public void createNewImage(String newImage)
+    {
+        elements.add(new Image(newImage));
+    }
+
+    public void createNewTable(String newTable)
+    {
+        elements.add(new Table(newTable));
+    }
     public void print()
     {
         System.out.println("Subchapter: " + this.name);
