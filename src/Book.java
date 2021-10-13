@@ -10,14 +10,12 @@ public class Book {
     public Book(String bookName)
     {
         this.bookName = bookName;
-
     }
 
     public void addAuthor(Author author)
     {
         this.AuthorList.add(author);
     }
-
     public int createChapter(String chapterName)
     {
         Chapter chapter = new Chapter(chapterName);
@@ -32,12 +30,11 @@ public class Book {
     public void print()
     {
         System.out.println("Title: " + this.bookName);
-        System.out.println("Author/Authors: ");
+        System.out.print("Author/Authors: ");
         for(Author a : AuthorList)
         {
             a.print();
         }
-        System.out.println("Chapters: ");
         for (Chapter c : ChapterList)
         {
             c.print();

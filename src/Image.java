@@ -1,4 +1,4 @@
-public class Image {
+public class Image implements Element{
     String image;
 
     public Image(String image)
@@ -6,8 +6,14 @@ public class Image {
         this.image = image;
     }
 
+    public String toString()
+    {
+      return "Image with name: "+this.image;
+    }
+
     public void print()
     {
-        System.out.println(this.image);
+        System.out.println(this.toString());
     }
+
 }

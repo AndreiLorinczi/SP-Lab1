@@ -1,4 +1,4 @@
-public class Paragraph {
+public class Paragraph implements Element{
     String para;
 
     public Paragraph(String text)
@@ -6,8 +6,14 @@ public class Paragraph {
         this.para = text;
     }
 
+    public String toString()
+    {
+        return "Paragraph: " + this.para;
+    }
+
     public void print()
     {
-        System.out.println(this.para);
+        System.out.println(this.toString());
     }
+
 }
