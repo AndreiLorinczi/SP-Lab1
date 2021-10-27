@@ -5,9 +5,28 @@ public class Table implements Element {
     {
         this.table = table;
     }
+    public Table (Table tab)
+    {
+        table= tab.table;
+    }
     public String toString()
     {
         return "Table with Title: "+this.table;
+    }
+
+    public void add(Element element)
+    {
+
+    }
+
+    public void remove(Element element)
+    {
+
+    }
+
+    public Element get(int index)
+    {
+        return null;
     }
 
     public void print()

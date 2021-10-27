@@ -5,10 +5,14 @@ public class Author {
     {
         this.name = name;
     }
+    public Author (Author author)
+    {
+        name = author.name;
+    }
 
     public void print()
     {
-        System.out.println(this.name);
+        System.out.println("Author: "+this.name);
     }
 
 }
