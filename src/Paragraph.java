@@ -1,5 +1,7 @@
 public class Paragraph implements Element{
     String para;
+    String ptext;
+    AlignStrategy ast;
 
     public Paragraph(String text)
     {
@@ -9,6 +11,14 @@ public class Paragraph implements Element{
     public Paragraph(Paragraph paragraph)
     {
         para = paragraph.para;
+    }
+
+    public void setAlignStrategy(AlignStrategy ast) {
+        this.ast = ast;
+    }
+
+    public String getpText() {
+        return ptext;
     }
 
     public String toString()
@@ -32,7 +42,11 @@ public class Paragraph implements Element{
 
     public void print()
     {
-        System.out.println(this.toString());
+        if(ast == null) {
+            System.out.println(this.toString());
+            return;
+        }
+        ast.render(this, new Context());
     }
 
 }
