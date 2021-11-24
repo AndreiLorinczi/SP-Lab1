@@ -7,3 +7,8 @@ all good, looks nice
 https://github.com/AndreiLorinczi/SP-Lab1/tree/404e101d9ea29df332dc64a288d55c09bbade290
 
 all good
+
+# Feedback lab4
+https://github.com/AndreiLorinczi/SP-Lab1/tree/a044d55cfa6fc92586e4f031a46122dab9e027ca
+
+all good
