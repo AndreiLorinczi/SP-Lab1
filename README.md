@@ -12,3 +12,8 @@ all good
 https://github.com/AndreiLorinczi/SP-Lab1/tree/a044d55cfa6fc92586e4f031a46122dab9e027ca
 
 all good
+
+# Feedback lab5:
+https://github.com/AndreiLorinczi/SP-Lab1/tree/1e1f0fec6d69fca1d88f98d6fbdc136837180519
+
+all good
