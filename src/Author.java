@@ -9,6 +9,10 @@ public class Author {
     {
         name = author.name;
     }
+    public String getName(){
+
+        return this.name;
+    }
 
     public void print()
     {

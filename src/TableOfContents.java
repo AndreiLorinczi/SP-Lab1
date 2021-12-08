@@ -1,8 +1,11 @@
 
 public class TableOfContents implements Element{
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
+    }
     public void print()
     {
-        System.out.println("Troll");
+        System.out.println("");
     }
 
     @Override

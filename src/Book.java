@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Book {
     private String bookName;
+    private TableOfContents tableOfContents;
     private List<Author> AuthorList = new ArrayList<>();
     private ArrayList<Element> content= new ArrayList<>();
 
@@ -33,5 +34,39 @@ public class Book {
             e.print();
     }
 
+    public List<Author> getAuthors(){
+        return this.AuthorList;
 
+    }
+    public String getTitle(){
+        return this.bookName;
+    }
+
+    public void addElements(Element e){
+        this.content.add(e);
+    }
+
+    public List<Element> getElements() {
+        return content;
+    }
+
+    public void setTitle(String title){
+        this.bookName = bookName;
+    }
+
+    public ArrayList<Element> getContents(){
+        return this.content;
+
+    }
+    public TableOfContents getTableOfContent() {
+        return tableOfContents;
+    }
+
+    public void setTableOfContents(TableOfContents tableOfContents) {
+        this.tableOfContents = tableOfContents;
+    }
+
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
+    }
 }

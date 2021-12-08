@@ -1,5 +1,5 @@
 public class Paragraph implements Element{
-    String para;
+    static String para;
     String ptext;
     AlignStrategy ast;
 
@@ -21,6 +21,10 @@ public class Paragraph implements Element{
         return ptext;
     }
 
+    public static String getText() {
+        return para;
+    }
+
     public String toString()
     {
         return "Paragraph: " + this.para;
@@ -40,6 +44,11 @@ public class Paragraph implements Element{
         return null;
     }
 
+    public AlignStrategy getTextAlignemnt() {
+        return ast;
+    }
+
+
     public void print()
     {
         if(ast == null) {
@@ -49,4 +58,7 @@ public class Paragraph implements Element{
         ast.render(this, new Context());
     }
 
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
+    }
 }

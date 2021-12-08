@@ -22,24 +22,6 @@ public class Section implements Element{
 
     public void add(Element element)
     {
-        /*
-        if(element instanceof Paragraph){
-            Paragraph paragraphCopy = new Paragraph((Paragraph) element);
-            this.elements.add(paragraphCopy);
-        }
-        else if(element instanceof Image){
-            Image imageCopy = new Image((Image) element);
-            this.elements.add(imageCopy);
-        }
-        else if(element instanceof Section){
-            Section sectionCopy = new Section((Section) element);
-            this.elements.add(sectionCopy);
-        }
-        else if(element instanceof Table){
-            Table tableCopy = new Table((Table) element);
-            this.elements.add(tableCopy);
-        }
-*/
         this.elements.add(element);
     }
 
@@ -56,5 +38,16 @@ public class Section implements Element{
         return elements.get(index);
     }
 
+    public ArrayList<Element> getElements() {
+        return elements;
+    }
+
+    public String getTitle() {
+        return name;
+    }
+
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
+    }
 
 }

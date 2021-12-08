@@ -35,6 +35,19 @@ public class Image implements Element{
         return null;
     }
 
+    public String getImageName() {
+        return image;
+    }
+
+    public void setImageName(String imageName) {
+        this.image = imageName;
+    }
+
+    @Override
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
+    }
+
     public void print()
     {
         System.out.println(this.toString());

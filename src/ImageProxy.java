@@ -7,7 +7,7 @@ public class ImageProxy implements Element {
     {
         this.url = url;
     }
-    private Image loadImage()
+    public Image loadImage()
     {
         if(realImage == null)
         {
@@ -38,5 +38,9 @@ public class ImageProxy implements Element {
     public Element get(int index)
     {
         return null;
+    }
+
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
     }
 }

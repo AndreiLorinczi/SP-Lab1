@@ -23,6 +23,10 @@ public class Table implements Element {
     {
 
     }
+    public String getName() {
+        return table;
+    }
+
 
     public Element get(int index)
     {
@@ -32,6 +36,10 @@ public class Table implements Element {
     public void print()
     {
         System.out.println(this.toString());
+    }
+
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
     }
 
 }
