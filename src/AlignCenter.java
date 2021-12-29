@@ -1,6 +1,8 @@
-public class AlignCenter implements AlignStrategy{
+public class AlignCenter implements AlignStrategy {
+
     @Override
-    public void render(Paragraph paragraph, Context context) {
-        System.out.println("Align center,"+paragraph.getpText());
+    public String render(String par) {
+        String text = "###" + par + "###";
+        return text;
     }
 }

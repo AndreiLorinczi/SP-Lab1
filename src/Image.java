@@ -1,56 +1,43 @@
+import java.util.LinkedList;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class Image implements Element{
-    String image;
+public class Image extends Element {
+    String imageName;
 
-    public Image(String image)
-    {
-        this.image = image;
+    public Image(String imageName) {
+        this.imageName = imageName;
         try {
             TimeUnit.SECONDS.sleep(5);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
-    public Image (Image img){
-        image = img.image;
-    }
-    public String toString()
-    {
-      return "Image with name: "+this.image;
+
+    public void print() {
+        System.out.println("Image with name: " + this.imageName);
     }
 
-    public void add(Element element)
-    {
-
+    public void render() {
+        System.out.println("Image with name: " + this.imageName);
     }
 
-    public void remove(Element element)
-    {
-
+    @Override
+    public void add(Element el) {
     }
 
-    public Element get(int index)
-    {
+    @Override
+    public void remove(Element el) {
+    }
+
+    @Override
+    public Element get(int num) {
         return null;
     }
 
-    public String getImageName() {
-        return image;
-    }
-
-    public void setImageName(String imageName) {
-        this.image = imageName;
-    }
 
     @Override
     public void accept(Visitor visitor) {
         visitor.visit(this);
     }
-
-    public void print()
-    {
-        System.out.println(this.toString());
-    }
-
 }

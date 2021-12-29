@@ -1,45 +1,36 @@
-public class Table implements Element {
-    String table;
+public class Table extends Element implements Visitee {
+    String title;
 
-    public Table (String table)
-    {
-        this.table = table;
-    }
-    public Table (Table tab)
-    {
-        table= tab.table;
-    }
-    public String toString()
-    {
-        return "Table with Title: "+this.table;
+    public Table(String title) {
+        this.title = title;
     }
 
-    public void add(Element element)
-    {
+    @Override
+    public void print() {
+        System.out.println("Table with Title: " + this.title);
+    }
+
+    public void render() {
+        System.out.println("Table with Title: " + this.title);
+    }
+
+    @Override
+    public void add(Element el) {
 
     }
 
-    public void remove(Element element)
-    {
+    @Override
+    public void remove(Element el) {
 
     }
-    public String getName() {
-        return table;
-    }
 
-
-    public Element get(int index)
-    {
+    @Override
+    public Element get(int num) {
         return null;
     }
 
-    public void print()
-    {
-        System.out.println(this.toString());
-    }
-
+    @Override
     public void accept(Visitor visitor) {
         visitor.visit(this);
     }
-
 }

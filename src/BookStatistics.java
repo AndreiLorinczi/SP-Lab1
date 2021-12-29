@@ -1,67 +1,51 @@
-public class BookStatistics implements Visitor {
-    private int countParagraph;
-    private int countImage;
-    private int countTables;
+public class BookStatistics implements Visitor{
+    private int imageNumber, tableNumber, paragraphNumber;
+
+    public BookStatistics() {
+        this.imageNumber = 0;
+        this.tableNumber = 0;
+        this.paragraphNumber = 0;
+    }
+
+    public void printStatistics() {
+        System.out.println("Book Statistics:");
+        System.out.println("*** Number of images: " + this.imageNumber);
+        System.out.println("*** Number of tables: " + this.tableNumber);
+        System.out.println("*** Number of paragraphs: " + this.paragraphNumber);
+    }
 
     @Override
     public void visit(Book book) {
-        for (Element e : book.getElements()) {
-            castVisitor(e);
-        }
+
     }
 
     @Override
     public void visit(Section section) {
-        for (Element e : section.getElements()) {
-            castVisitor(e);
-        }
+
+    }
+
+    @Override
+    public void visit(TableOfContents tableOfContents) {
+
     }
 
     @Override
     public void visit(Paragraph paragraph) {
-        countParagraph++;
+        this.paragraphNumber ++;
     }
 
     @Override
-    public void visit(ImageProxy proxy) {
-        countImage++;
-    }
-
-    @Override
-    public void visit(Image image) {
-        countImage++;
+    public void visit(ImageProxy imageProxy) {
+        this.imageNumber ++;
     }
 
     @Override
     public void visit(Table table) {
-        countTables++;
+        this.tableNumber ++;
     }
 
     @Override
-    public void visit(TableOfContents content) {
-        countTables++;
-    }
-
-    public void printCounter() {
-        System.out.println("Book Statistics:");
-        System.out.println("*** Number of paragraphs: " + countParagraph);
-        System.out.println("*** Number of images: " + countImage);
-        System.out.println("*** Number of tables: " + countTables);
-    }
-
-    private void castVisitor(Element e) {
-        if (e instanceof Paragraph) {
-            visit((Paragraph) e);
-        } else if (e instanceof ImageProxy) {
-            visit((ImageProxy) e);
-        } else if (e instanceof Image) {
-            visit((Image) e);
-        } else if (e instanceof TableOfContents) {
-            visit((TableOfContents) e);
-        } else if (e instanceof Section) {
-            visit((Section) e);
-        } else if (e instanceof Table) {
-            visit((Table) e);
-        }
+    public void visit(Image image) {
+        this.imageNumber ++;
     }
 }

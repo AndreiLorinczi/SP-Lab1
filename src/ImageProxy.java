@@ -1,45 +1,48 @@
+public class ImageProxy extends Element implements Visitee {
+    private String imageName;
+    private Image realImage;
 
-public class ImageProxy implements Element {
-    String url;
-    Image realImage;
-
-    ImageProxy(String url)
-    {
-        this.url = url;
+    public ImageProxy(String url) {
+        this.imageName = url;
+        this.realImage = null;
     }
-    public Image loadImage()
-    {
-        if(realImage == null)
-        {
-            realImage = new Image(url);
+
+    public Image loadImage() {
+        if(realImage == null) {
+            realImage = new Image(imageName);
         }
+
         return realImage;
     }
 
     @Override
-    public void print()
-    {
-        loadImage().print();
+    void print() {
+        loadImage();
+        realImage.print();
+    }
+
+    void render() {
+        loadImage();
+        realImage.print();
     }
 
     @Override
-    public void add(Element element)
-    {
+    void add(Element el) {
 
     }
 
     @Override
-    public void remove(Element element)
-    {
+    void remove(Element el) {
 
     }
 
     @Override
-    public Element get(int index)
-    {
+    Element get(int num) {
         return null;
     }
 
+
+    @Override
     public void accept(Visitor visitor) {
         visitor.visit(this);
     }

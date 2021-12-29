@@ -1,8 +1,8 @@
 public class Main {
-    public static void Printing(){
-        DocumentManager.getInstance().getBook().print();
-    }
     public static void main(String[] args) {
+        Book myBook = new Book("My Book");
+        Author me = new Author("My Self");
+        myBook.addAuthor(me);
         Section cap1 = new Section("Capitolul 1");
         Paragraph p1 = new Paragraph("Paragraph 1");
         cap1.add(p1);
@@ -16,11 +16,19 @@ public class Main {
         cap1.add(new Image("ImageTwo"));
         cap1.add(new Paragraph("Some text"));
         cap1.add(new Table("Table 1"));
-        GenerateToC printer = new GenerateToC();
-        BookStatistics bookStatistics = new BookStatistics();
-        cap1.accept(printer);
-        cap1.accept(bookStatistics);
-        bookStatistics.printCounter();
+
+        myBook.addContent(cap1);
+
+        //myBook.accept(new RenderContentVisitor());
+
+        BookStatistics stats = new BookStatistics();
+        cap1.accept(stats);
+        stats.printStatistics();
+
+        GenerateToC toc = new GenerateToC();
+        myBook.accept(toc);
+        TableOfContents res = toc.getToc();
+        res.render();
     }
 }
 

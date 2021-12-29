@@ -1,6 +1,8 @@
-public interface Element extends Visitee {
-    public void print();
-    void add(Element element);
-    void remove(Element element);
-    Element get(int index);
+public abstract class Element implements Visitee{
+    Element parent;
+    abstract void print();
+
+    abstract void add(Element el);
+    abstract void remove(Element el);
+    abstract Element get(int num);
 }

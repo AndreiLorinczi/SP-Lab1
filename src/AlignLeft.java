@@ -1,6 +1,8 @@
-public class AlignLeft implements AlignStrategy {
+public class AlignLeft implements AlignStrategy{
+
     @Override
-    public void render(Paragraph paragraph, Context context) {
-        System.out.println("Align left,"+paragraph.getpText());
+    public String render(String par) {
+        String text = "###" + par;
+        return text;
     }
 }

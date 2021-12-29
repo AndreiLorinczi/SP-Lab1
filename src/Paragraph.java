@@ -1,63 +1,53 @@
-public class Paragraph implements Element{
-    static String para;
-    String ptext;
-    AlignStrategy ast;
+import java.util.LinkedList;
+import java.util.List;
 
-    public Paragraph(String text)
-    {
-        this.para = text;
+public class Paragraph extends Element implements Visitee {
+    private String text;
+    private AlignStrategy textAlignment;
+
+    public Paragraph(String text) {
+        this.text = text;
     }
 
-    public Paragraph(Paragraph paragraph)
-    {
-        para = paragraph.para;
+    public void print() {
+        System.out.println("Paragraph: " + this.text);
     }
 
-    public void setAlignStrategy(AlignStrategy ast) {
-        this.ast = ast;
+    public void render() {
+        System.out.println("Paragraph: " + this.text);
     }
 
-    public String getpText() {
-        return ptext;
+    @Override
+    public void add(Element el) {
     }
 
-    public static String getText() {
-        return para;
+    @Override
+    public void remove(Element el) {
     }
 
-    public String toString()
-    {
-        return "Paragraph: " + this.para;
-    }
-    public void add(Element element)
-    {
-
-    }
-
-    public void remove(Element element)
-    {
-
-    }
-
-    public Element get(int index)
-    {
+    @Override
+    public Element get(int num) {
         return null;
     }
 
-    public AlignStrategy getTextAlignemnt() {
-        return ast;
+    public void setText(String text) {
+        this.text = text;
     }
 
-
-    public void print()
-    {
-        if(ast == null) {
-            System.out.println(this.toString());
-            return;
-        }
-        ast.render(this, new Context());
+    public void setAlignStrategy(AlignStrategy alst) {
+        this.textAlignment = alst;
+        setText(alst.render(this.text));
     }
 
+    public AlignStrategy getTextAlignment() {
+        return textAlignment;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    @Override
     public void accept(Visitor visitor) {
         visitor.visit(this);
     }
