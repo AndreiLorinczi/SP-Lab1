@@ -17,3 +17,10 @@ all good
 https://github.com/AndreiLorinczi/SP-Lab1/tree/1e1f0fec6d69fca1d88f98d6fbdc136837180519
 
 all good
+
+# Feedback lab6:
+https://github.com/AndreiLorinczi/SP-Lab1/tree/7b4f7c760afc833716b9c11287997db6a31de7ed
+
+all good
+
+# Proposed grade: 10
